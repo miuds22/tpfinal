@@ -8,6 +8,7 @@ const Header = ({SelectorMenu}) => {
         SelectorMenu(menu)
     }
     
+
     return(
     <Fragment>
         <Navbar bg="dark" data-bs-theme="dark">
@@ -22,3 +23,5 @@ const Header = ({SelectorMenu}) => {
     </Fragment>)
 }
 export default Header
+
+

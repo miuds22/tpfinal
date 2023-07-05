@@ -11,7 +11,7 @@ import axios from "axios";
 const DnsSearcher = ({editarLista}) => {    
     
   const  [busqueda , agregarabusqueda] = useState( {txtbusqueda:""})
-  const  [estado,setEstado] =useState("vacio");
+  const  [estado,setEstado] =useState("");
   const  [IPNet , CambiarIP] = useState({IP: "",websiteName:"",country:"",isp:"",org:"",lat:"",lon:"",as:"",city:"",regionName:"",timezone:""});
 
   const {txtbusqueda,ip} = busqueda;
@@ -41,8 +41,8 @@ const DnsSearcher = ({editarLista}) => {
   }
 
   function validarUrl(busqueda){
-    
-    return true;
+    if(busqueda.txtbusqueda.replace("https://", "").replace("http://", "") === busqueda.txtbusqueda )
+    { setEstado("La pagina debe tener tener declarado el protocolo (wwww no es un protocolo che!!!)") ;return false } else {return true;}
   }
 
 
@@ -79,12 +79,12 @@ const DnsSearcher = ({editarLista}) => {
         
       } else {
         console.error('Error al obtener la dirección IP:', data.message);
-        setEstado("error")
+        setEstado(`la pagina no pudo ser localizada:${data.message}`)
         return null;
       }
     } catch (error) {
       console.error('Error al obtener la dirección IP:', error);
-      setEstado("error")
+      setEstado(`error en la api: ${error}`)
       return null;
     }
   }
@@ -129,8 +129,8 @@ const DnsSearcher = ({editarLista}) => {
             </div>
         </Form>
         </div>
-        {estado ==="error"? 
-                    <h2> la pagina ingresada es invalida</h2>
+        {estado !=="validado" &&  estado !=="" ? 
+                    <h2>{estado}</h2>
               : estado==="validado" && IP !== ''? 
                     <div className="row">                   
                       <div className="col-md-6">
