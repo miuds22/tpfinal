@@ -1,9 +1,10 @@
 import React from "react"
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-
+//carta
 const Carta = ({elementoUrl,elementoIP}) => {
     return(<>
+    
             <div className="Carta">
             <Card className="text-center bg-secondary">
             <Card.Header>{elementoUrl}</Card.Header>
