@@ -1,0 +1,143 @@
+.seccion {
+  padding-left:8%
+}
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+*{ box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+#root{
+  height: 100vh;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*tamaño del mapa*/
+.leaflet-container{
+  height:  500px;
+}
+
+
+.rail{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 16px;
+  margin: 100px;
+
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#sideBar{
+  height: 100%;
+  background-color: #212529;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+
+.home{
+      height: 100%;
+      width: 100% ;
+      background-color: lightgray;
+      }
+
+.railceld{
+  text-align: center;
+  padding: 8px;
+  margin: 8%;
+}
+
+div .imagen {
+  width: 100%;
+  height: 90%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.row{
+  max-height: 40em;
+}
+
+#root{height: 100%;}
+
+
+
+.noticia{
+  padding: 8%;
+  align-content: center;
+
+}
+
+@media only screen and (max-width: 767px) {
+
+  #sideBar{
+    display: none;
+  }
+  .seccion{
+    padding-right: 16px;
+  }
+}
+
+#buscador{
+  padding: 2% 8%;
+}
+
+
+.body{  background-color: #282c34;}
+
+
+.Bienvenida{
+  font-family: 'Times New Roman', Times, serif;
+  padding-top: 16px;
+  padding-bottom: 16px;}
+
+  .Carta{
+    padding-bottom: 8px;
+  }
+  
+  .titulo{
+    color: aliceblue ;
+  }
