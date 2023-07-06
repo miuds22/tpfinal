@@ -7,7 +7,7 @@ import Carta from './Components/Carta';
 
 function App() {
   let busquedasGuardadas = JSON.parse(localStorage.getItem("historial"));  
-  if(!busquedasGuardadas){busquedasGuardadas=[{busqueda:"",IP:""}]}
+  if(!busquedasGuardadas){busquedasGuardadas=[]}
   
   useEffect(()=>{busquedasGuardadas?  localStorage.setItem('historial',JSON.stringify(historial)):  localStorage.setItem('historial',JSON.stringify([]));
       console.log(historial)},
@@ -31,8 +31,8 @@ function App() {
   return (
   <div className='App'>
     <Header id="App-header" SelectorMenu={cambiarPuntero} /> 
-    <div id='body' className='row'>
-      <div id="sideBar" className='col-lg-2'>
+    <div  className='row fullh' id='body'>
+      <div id="sideBar" className='col-lg-2 fullh'>
               <div class="titulo"> historial</div>
               {historial.map(
                   element =>
@@ -40,8 +40,8 @@ function App() {
                           elementoIP={element.IP}/>
               )}
       </div>
-      <div className='home col-lg-10'>
-          {menu ==="home" && <Home className="full-wid"/>}
+      <div className='home col-lg-10 fullh' style={{ overflowY: 'scroll', maxHeight: '100%  ' }}>
+          {menu ==="home" && <Home/>}
           {menu ==="DNS" && <DnsSearcher editarLista={editarLista} />}
       </div> 
     </div>  

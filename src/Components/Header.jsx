@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const Header = ({SelectorMenu}) => {
 
     function seleccionarMenu(menu){
-        SelectorMenu(menu)
+            SelectorMenu(menu)
     }
     
 
@@ -13,7 +13,7 @@ const Header = ({SelectorMenu}) => {
     <Fragment>
         <Navbar bg="dark" data-bs-theme="dark">
             <Container>
-                <Navbar.Brand href="#home">info tech</Navbar.Brand>
+                <Navbar.Brand onClick={()=>seleccionarMenu("home")}>info tech</Navbar.Brand>
                 <Nav className="me-auto">
                     <Nav.Link onClick={()=>seleccionarMenu("home")}>Home</Nav.Link>
                     <Nav.Link onClick={()=>seleccionarMenu("DNS")}>Geolocalizacion de Dominio</Nav.Link>

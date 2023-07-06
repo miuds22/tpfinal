@@ -4,6 +4,7 @@
 .App {
   font-family: sans-serif;
   text-align: center;
+  height: 100%;
 }
 
 *{ box-sizing: border-box;
@@ -11,44 +12,10 @@
   padding: 0;
 }
 #root{
-  height: 100vh;
+  height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
+body{height: 100vh;}
 /*tamaño del mapa*/
 .leaflet-container{
   height:  500px;
@@ -71,12 +38,11 @@
 }
 
 #sideBar{
-  
+  height: 100%;
   background-color: #212529;
   flex-direction: column;
   position: relative;
   z-index: 2;
-  min-height: 100%; 
 }
 
 .home{
@@ -98,7 +64,9 @@ div .imagen {
   border-radius: 16px;
 }
 
-.row{
+#Contenido{height: 100%; }
+.rowl{
+  
   max-height: 40em;
 }
 
@@ -109,7 +77,6 @@ div .imagen {
 .noticia{
   padding: 8%;
   align-content: center;
-
 }
 
 @media only screen and (max-width: 767px) {
@@ -127,7 +94,7 @@ div .imagen {
 }
 
 
-.body{   min-height: 100%;  background-color: #282c34;}
+.body{  background-color: #282c34; height: 100%;}
 
 
 .Bienvenida{
@@ -145,8 +112,10 @@ div .imagen {
 
   #dropmenu{
     padding: 26px 0px;
-    
     margin: 0% 65% 0% 0%;
     
   }
   
+
+   .fullh{ height:  100% !important;}
+   html{ height:  100% !important;}

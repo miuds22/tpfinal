@@ -43,7 +43,7 @@ return(
     <div className="seccion">
         <h2>Noticias {categoria}</h2>
         { categoria===""? noticias().map(noticia => 
-                <div className="row"> 
+                <div className="row rowl"> 
                     <div className='col-md-4 col-sm-12'><img className='imagen' src={noticia.imagen}></img></div>
                     <div className='col-md-8 col-sm-12'>
                         <div class="noticia">
@@ -55,7 +55,7 @@ return(
         ) 
         :
         noticias().filter(n => n.tipo===categoria).map(noticia => 
-            <div className="row"> 
+            <div className="row rowl"> 
                 <div className='col-md-4 col-sm-12'><img className='imagen' src={noticia.imagen}></img></div>
                 <div className='col-md-8 col-sm-12'>
                     <div class="noticia">
