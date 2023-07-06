@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { Fragment, useEffect, useState } from "react"
 import { Button } from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -11,7 +11,8 @@ const DnsSearcher = ({editarLista}) => {
   const  [busqueda , agregarabusqueda] = useState( {txtbusqueda:""})
   const  [estado,setEstado] =useState("");
   const  [IPNet , CambiarIP] = useState({IP: "",websiteName:"",country:"",isp:"",org:"",lat:"",lon:"",as:"",city:"",regionName:"",timezone:""});
-
+  const  [perrito,cambiarPerro] =useState("");
+  
   const {txtbusqueda,ip} = busqueda;
   const {IP,websiteName,country, isp, org ,lat,lon,img
     ,as
@@ -40,7 +41,8 @@ const DnsSearcher = ({editarLista}) => {
 
   function validarUrl(busqueda){
     if(busqueda.txtbusqueda.replace("https://", "").replace("http://", "") === busqueda.txtbusqueda )
-    { setEstado("La pagina debe tener tener declarado el protocolo (wwww no es un protocolo che!!!)") ;return false } else {return true;}
+    { setEstado("La pagina debe tener tener declarado el protocolo (wwww no es un protocolo che!!!)") 
+      perro();return false } else {return true;}
   }
 
 
@@ -55,7 +57,7 @@ const DnsSearcher = ({editarLista}) => {
 
   const  obtenerDireccionIP = async(busqueda) => {
     try {
-      const response = await axios(`https://ip-api.com/json/${busqueda.replace("https://", "").replace("http://", "").replace("www.", "")}`);
+      const response = await fetch(`http://ip-api.com/json/${busqueda.replace("https://", "").replace("http://", "").replace("www.", "")}`);
       const data = await response.json();
       console.log(data)
       if (data.status === 'success') {
@@ -78,26 +80,27 @@ const DnsSearcher = ({editarLista}) => {
       } else {
         console.error('Error al obtener la dirección IP:', data.message);
         setEstado(`la pagina no pudo ser localizada:${data.message}`)
+        perro()
         return null;
       }
     } catch (error) {
       console.error('Error al obtener la dirección IP:', error);
       setEstado(`error en la api: ${error}`)
+      perro()
       return null;
     }
   }
-  const DnsLookup =  async(url) => {
+  const perro =  async(url) => {
 
     var myHeaders = new Headers();
     myHeaders.append("key", "0D3C91D418AD36C7DB93D2B80AC06229");
     
     try{
       const response = await axios.get(
-        `https://api.savepage.io/v1/?key=09e97082bee4babfd4ee0d3f1cdae752&q=${url.replace("https://", "").replace("http://", "").replace("www.", "")}`)
-
-      console.log(response);
-      const data = response.data
+        `https://dog.ceo/api/breeds/image/random`)
       
+      cambiarPerro(response.data.message)
+      console.log(response)
       
     }
     catch(e){
@@ -106,7 +109,7 @@ const DnsSearcher = ({editarLista}) => {
   }
     
     return(
-      <>
+      <Fragment className="fullwidt">
         <div id="buscador">
         <Form onSubmit={submitForm}>
             <div className="row">
@@ -128,7 +131,10 @@ const DnsSearcher = ({editarLista}) => {
         </Form>
         </div>
         {estado !=="validado" &&  estado !=="" ? 
-                    <h2>{estado}</h2>
+                    <div>
+                      <h2>{estado}</h2>
+                      <img src={perrito} alt="Perrito para no desanimarse!!!" />
+                    </div>
               : estado==="validado" && IP !== ''? 
                     <div className="row">                   
                       <div className="col-md-6">
@@ -183,7 +189,7 @@ const DnsSearcher = ({editarLista}) => {
 
                     :null
         }
-      </>
+      </Fragment>
       )
 }
 
