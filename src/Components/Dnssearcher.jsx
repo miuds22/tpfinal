@@ -4,8 +4,6 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import MapView from './MapView';
 import Table from 'react-bootstrap/Table';
-
-import Card from 'react-bootstrap/Card';
 import axios from "axios";
 
 const DnsSearcher = ({editarLista}) => {    
@@ -142,9 +140,13 @@ const DnsSearcher = ({editarLista}) => {
                                 </thead>
                                 <tbody>
                                 <tr>
+                                    <td>nombre</td>
+                                    <td>{websiteName}</td>
+                                </tr>
+                                <tr>
                                     <td>IP</td>
                                     <td>{IP}</td>
-                                  </tr>
+                                </tr>
                                   <tr>
                                     <td>Proveedor</td>
                                     <td>{isp}</td>
