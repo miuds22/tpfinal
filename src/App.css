@@ -71,11 +71,12 @@
 }
 
 #sideBar{
-  height: 100%;
+  
   background-color: #212529;
   flex-direction: column;
   position: relative;
   z-index: 2;
+  min-height: 100%; 
 }
 
 .home{
@@ -126,7 +127,7 @@ div .imagen {
 }
 
 
-.body{  background-color: #282c34;}
+.body{   min-height: 100%;  background-color: #282c34;}
 
 
 .Bienvenida{
