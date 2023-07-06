@@ -55,7 +55,7 @@ const DnsSearcher = ({editarLista}) => {
 
   const  obtenerDireccionIP = async(busqueda) => {
     try {
-      const response = await fetch(`http://ip-api.com/json/${busqueda.replace("https://", "").replace("http://", "").replace("www.", "")}`);
+      const response = await axios(`https://ip-api.com/json/${busqueda.replace("https://", "").replace("http://", "").replace("www.", "")}`);
       const data = await response.json();
       console.log(data)
       if (data.status === 'success') {

@@ -13,7 +13,7 @@ const Header = ({SelectorMenu}) => {
     <Fragment>
         <Navbar bg="dark" data-bs-theme="dark">
             <Container>
-                <Navbar.Brand href="#home">MrkUltra</Navbar.Brand>
+                <Navbar.Brand href="#home">info tech</Navbar.Brand>
                 <Nav className="me-auto">
                     <Nav.Link onClick={()=>seleccionarMenu("home")}>Home</Nav.Link>
                     <Nav.Link onClick={()=>seleccionarMenu("DNS")}>Geolocalizacion de Dominio</Nav.Link>
