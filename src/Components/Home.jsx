@@ -4,6 +4,7 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 
+
 const noticias = () => {
     return(
         [{tipo:"Cientificas", titulo:"Físicos encuentran un nuevo núcleo atómico en el elemento natural más raro", imagen:"https://www.robotitus.com/wp-content/uploads/2023/06/Astronauta-1.jpg" ,Cuerpo:`Acabamos de identificar un nuevo isótopo del elemento más raro en la corteza terrestre. Investigadores del Laboratorio de Aceleradores de la Universidad de Jyväskylä en Finlandia han identificado un nuevo núcleo atómico, el 190-Astatine. Los detalles del trabajo fueron publicados en Physical Review C. El 190-Astatine es ahora el isótopo más ligero conocido del astato, un elemento raro que se descompone rápidamente. Su creación fue posible gracias a la fusión de partículas de haz de 84Sr con átomos diana de plata. Luego, mediante el uso de los detectores del separador de retroceso RITU, se identificó el isótopo entre los productos de fusión.`},
