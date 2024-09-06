@@ -1,10 +1,10 @@
 import { useEffect, useState, useTransition } from 'react';
 import './App.css';
 import Header from './Components/Header';
-import DnsSearcher from './Components/Dnssearcher';
+import ProductSearcher from './Components/productSearcher';
 import Home from './Components/Home';
 import Carta from './Components/Carta';
-
+import Tabla from './Components/Tabla'
 function App() {
   let busquedasGuardadas = JSON.parse(localStorage.getItem("historial"));  
   if(!busquedasGuardadas){busquedasGuardadas=[]}
@@ -22,7 +22,6 @@ function App() {
   //guardo que menu ha seleccionado
   const [menu, seleccionarMenu] = useState("home");
 
-
   const [historial,editarHistorial] =useState(busquedasGuardadas)
   const editarLista = (busqueda) =>{
     editarHistorial([busqueda,...historial].slice(0,5))
@@ -34,15 +33,10 @@ function App() {
     <div  className='row fullh' id='body'>
       <div id="sideBar" className='col-lg-2 fullh'>
               <div class="titulo"> historial</div>
-              {historial.map(
-                  element =>
-                  <Carta elementoUrl={element.busqueda}
-                          elementoIP={element.IP}/>
-              )}
+              {historial.map( element => <Carta product={element.busqueda}/>)}
       </div>
       <div className='home col-lg-10 fullh' style={{ overflowY: 'scroll', maxHeight: '100%  ' }}>
-          {menu ==="home" && <Home/>}
-          {menu ==="DNS" && <DnsSearcher editarLista={editarLista} />}
+          {menu ==="home" && <ProductSearcher  editarLista={editarLista} />}
       </div> 
     </div>  
   </div>
