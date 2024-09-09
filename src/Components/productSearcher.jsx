@@ -10,11 +10,11 @@ import axios from "axios";
 
 const ProductSearcher = () => {   
   
-const  [products , setProducts]  = useState([]);
-const  [err,setErr] =useState();
-const  [perrito,cambiarPerro] =useState("");
-const [toSearch,setSearch] = useState("")
-const [filtered, setFilter] =useState([])
+let  [products , setProducts]  = useState([]);
+let  [err,setErr] =useState();
+let  [perrito,cambiarPerro] =useState("");
+let [toSearch,setSearch] = useState("")
+let [filtered, setFilter] =useState([])
 
 useEffect(() => {
   const fetchProducts = async () => {
@@ -22,22 +22,28 @@ useEffect(() => {
     const response = await fetch(url);
     const data = await response.json();
     setProducts(data);
-    setFilter(products)
+    
   };
-
-  fetchProducts();
+  try{
+    fetchProducts();    
+  }
+  catch{
+    ShowErr("error al cargar la app")
+  }
 
 }, []);
 
 useEffect(() => {
-  setFilter(products.filter( dato =>  dato.DESCRIPCION.includes(toSearch)))
+  if (toSearch!="")
+    {
+      setFilter(products.filter( dato =>  dato.DESCRIPCION.includes(toSearch)))  
+    } 
+  else
+    {
+      setFilter([])
+      ShowErr("ingrese un filtro para ver la lista!")
+    }
 }, [toSearch]);
-
-
-
-const getProducts = (nombre) => {
-  return products.filter;
-};
 
 
 //reading on live time the keyboard
@@ -48,7 +54,6 @@ const handleChange = (e) => {
 const submitForm=(e)=>{
     setFilter([]);  
     e.preventDefault();
-    setErr("")
     setFilter(filtered);
 }
 
@@ -62,8 +67,7 @@ function ShowErr(error){
     var myHeaders = new Headers();
     myHeaders.append("key", "0D3C91D418AD36C7DB93D2B80AC0txtSearch6229");  
     try{
-      const response = await axios.get(
-        `https://dog.ceo/api/breeds/image/random`)      
+      const response = await axios.get(  `https://dog.ceo/api/breeds/image/random`)      
       cambiarPerro(response.data.message)
       
     }
@@ -73,7 +77,8 @@ function ShowErr(error){
   }
 
     return(
-      <Fragment className="fullwidt">
+      <Fragment>
+        <div className="fullwidt">
         <div id="buscador">
         <Form onSubmit={submitForm}>
             <div className="row">
@@ -95,17 +100,17 @@ function ShowErr(error){
             </div>
         </Form>
         </div>
+        <Tabla listProducts={filtered}></Tabla> 
         {err =="ok"  ? 
-            console.log(filtered.length)
-                  // <Tabla listProducts={filtered}></Tabla> 
-        /* : err =! "" ?
+              <Tabla listProducts={filtered}></Tabla> 
+        : err =! "" ?
                 <div>
-                      <h2>{err}</h2>
+                      <h2>{err}</h2>  
                       <img src={perrito} alt="Perrito para no desanimarse!!!" />
-                    </div>
-                    */
+                </div>
         : null
         }
+        </div>
       </Fragment>
       )
 }
