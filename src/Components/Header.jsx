@@ -16,7 +16,7 @@ const Header = ({SelectorMenu}) => {
                 <Navbar.Brand onClick={()=>seleccionarMenu("home")}>info tech</Navbar.Brand>
                 <Nav className="me-auto">
                     <Nav.Link onClick={()=>seleccionarMenu("home")}>Home</Nav.Link>
-                    <Nav.Link onClick={()=>seleccionarMenu("DNS")}>Geolocalizacion de Dominio</Nav.Link>
+                    {/* <Nav.Link onClick={()=>seleccionarMenu("DNS")}>Geolocalizacion de Dominio</Nav.Link> */}
                 </Nav>
             </Container>
         </Navbar>
