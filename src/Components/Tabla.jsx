@@ -4,8 +4,8 @@ import Table from 'react-bootstrap/Table';
 
 
 const Tabla = ({listProducts}) => {
-    console.log("lista que llega" , listProducts)
-    return(
+  console.log("lista que llega" , listProducts)  
+  return(
         <Table striped bordered hover>
         <thead>
           <tr>
@@ -14,6 +14,7 @@ const Tabla = ({listProducts}) => {
             <th>Descripcion</th>
             <th>Precio Unitario</th>
             <th>Proveedor</th>
+            <th>N° Orden Compra</th>
           </tr>
         </thead>
         <tbody>
@@ -24,6 +25,7 @@ const Tabla = ({listProducts}) => {
                 <td>{p.DESCRIPCION}</td>
                 <td>{p.PRECIOUNITARIO}</td>
                 <td>{p.NOMBREPROVEEDOR}</td>
+                <td>{p.NRO_OC}</td>
               </tr>
             )}
         </tbody>
