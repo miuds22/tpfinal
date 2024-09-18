@@ -18,16 +18,21 @@ let [filtered, setFilter] =useState([])
 
 useEffect(() => {
   const fetchProducts = async () => {
+    try{
     const url = 'http://10.1.1.23/api/entidad/BUSCARPRODUCTO/a' 
     const response = await fetch(url);
     const data = await response.json();
     setProducts(data);
-    
+    }
+    catch(e){
+      console.log(e)
+    }
   };
   try{
     fetchProducts();    
   }
-  catch{
+  catch(e){
+    setProducts([]);
     ShowErr("error al cargar la app")
   }
 
